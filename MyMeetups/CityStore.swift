@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
+//MARK: Class CityStore
 class CityStore {
     
     let session: URLSession = {
@@ -16,6 +17,7 @@ class CityStore {
         return URLSession(configuration:config)
     }()
     
+    // Func to check if we get data from JSON
     func processCityRequest(data: Data?, error: NSError?) -> CityResult {
         guard let jsonData = data else {
             return .failure(error!)
@@ -24,8 +26,7 @@ class CityStore {
         return MeetupAPI.citiesFromJSONData(jsonData)
     }
     
-    
-    
+    // Fuction for URL Request
     func fetchCities(completion: @escaping (CityResult) -> Void) {
         let api = MeetupAPI()
         let url = api.meetUpURL(method:Method.Cities)

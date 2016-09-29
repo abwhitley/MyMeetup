@@ -22,6 +22,7 @@ enum MeetupError: Error {
     case invalidJSONData
 }
 
+// Struct For Plist
 struct MeetupAPIConfiguration {
     let apiKey: String
     let baseURL: String
@@ -38,42 +39,40 @@ struct MeetupAPIConfiguration {
     
 }
 
+//MARK: Class API
 class MeetupAPI {
-    
     static let config = MeetupAPIConfiguration()
     let baseURL = config.baseURL
     
+    //Creates the URL for the API
     func meetUpURL(method: Method) -> URL {
         let components = URLComponents(string: baseURL.appending(Method.Cities.rawValue))!
         return components.url!
-        
     }
     
+    //Parses through JSON for City Key
     class func citiesFromJSONData(_ data: Data) -> CityResult {
-        
         do {
             let jsonObject: Any = try JSONSerialization.jsonObject(with: data, options: [])
-            
             guard let
                 jsonDictionary = jsonObject as? [String: AnyObject],
                 let citiesArray = jsonDictionary["results"] as? [[String:AnyObject]] else{
-                    //
-                    //                    // The JSON structure doesn't match our expectations
+                    // The JSON structure doesn't match our expectations
                     return .failure(MeetupError.invalidJSONData)
             }
             //
             var finalCities = [City]()
-                        for cityJSON in citiesArray {
-                            if let city = cityFromJSONObject(cityJSON) {
-                                finalCities.append(city)
-                            }
-                        }
+            for cityJSON in citiesArray {
+                if let city = cityFromJSONObject(cityJSON) {
+                    finalCities.append(city)
+                }
+            }
             
-                        if finalCities.count == 0 && citiesArray.count > 0 {
-                            // We weren't able to parse any of the photos.
-                            // Maybe the JSON format for photos has changed.
-                            return .failure(MeetupError.invalidJSONData)
-                        }
+            if finalCities.count == 0 && citiesArray.count > 0 {
+                // We weren't able to parse any of the photos.
+                // Maybe the JSON format for photos has changed.
+                return .failure(MeetupError.invalidJSONData)
+            }
             return .success(finalCities)
         }
         catch let error {
@@ -81,18 +80,17 @@ class MeetupAPI {
         }
     }
     
-//     class func cityFromJSONObject(_ json: [String : AnyObject]) -> City? {
-//        guard let
-//            name = json["city"] as? String else{
-//        
-//                // Don't have enough information to construct a Photo
-//                return nil
-//        }
-//        
-//        return City(name: name)
-//    }
-
-    
-    
+    //Defines the City Object
+    class func cityFromJSONObject(_ json: [String : AnyObject]) -> City? {
+        guard let
+            name = json["city"] as? String,
+            let state = json["state"] as? String else{
+                
+                // Don't have enough information to construct a City
+                return nil
+        }
+        
+        return City(name: name, state: state)
+    }
 }
-    
+

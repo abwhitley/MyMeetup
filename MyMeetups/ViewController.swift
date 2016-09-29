@@ -10,14 +10,18 @@ import UIKit
 
 class ViewController: UIViewController {
     var store = CityStore()
-
+    
+    //Pushes Button and calls fetchCities
     @IBAction func actionButton(_ sender: AnyObject) {
         store.fetchCities() {
-            (citiesResult) -> Void in
+            (CityResult) -> Void in
             
-            switch citiesResult {
+            switch CityResult {
             case let .success(CityResult):
                 print("Successfully found \(CityResult.count) cities.")
+                for city in CityResult{
+                    print(city.name, city.state)
+                }
                 
             case let .failure(error):
                 print("Error fetching cities: \(error)")
@@ -25,7 +29,7 @@ class ViewController: UIViewController {
             
         }
     }
-
-
+    
+    
 }
 

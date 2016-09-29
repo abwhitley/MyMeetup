@@ -8,13 +8,14 @@
 
 import Foundation
 
+//Creates a City Object 
 class City {
     var name : String
-    var state: String
-
+    var state : String
+    
     init(name: String, state: String) {
         self.name = name
         self.state = state
     }
-
+    
 }
