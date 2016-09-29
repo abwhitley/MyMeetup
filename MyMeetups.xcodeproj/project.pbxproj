@@ -14,6 +14,10 @@
 		E9E7D01D1D9C11F500A8C82C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9E7D01B1D9C11F500A8C82C /* LaunchScreen.storyboard */; };
 		E9E7D0281D9C11F500A8C82C /* MyMeetupsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E7D0271D9C11F500A8C82C /* MyMeetupsTests.swift */; };
 		E9E7D0331D9C11F500A8C82C /* MyMeetupsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E7D0321D9C11F500A8C82C /* MyMeetupsUITests.swift */; };
+		E9E7D0411D9C129100A8C82C /* MeetupConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9E7D0401D9C129100A8C82C /* MeetupConfig.plist */; };
+		E9E7D0491D9C351900A8C82C /* CityStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E7D0481D9C351900A8C82C /* CityStore.swift */; };
+		E9E7D04D1D9C378E00A8C82C /* MeetupAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E7D04C1D9C378E00A8C82C /* MeetupAPI.swift */; };
+		E9E7D0531D9C6AE900A8C82C /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E7D0521D9C6AE900A8C82C /* City.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		E9E7D02E1D9C11F500A8C82C /* MyMeetupsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyMeetupsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9E7D0321D9C11F500A8C82C /* MyMeetupsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMeetupsUITests.swift; sourceTree = "<group>"; };
 		E9E7D0341D9C11F500A8C82C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9E7D0401D9C129100A8C82C /* MeetupConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MeetupConfig.plist; sourceTree = "<group>"; };
+		E9E7D0481D9C351900A8C82C /* CityStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityStore.swift; sourceTree = "<group>"; };
+		E9E7D04C1D9C378E00A8C82C /* MeetupAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetupAPI.swift; sourceTree = "<group>"; };
+		E9E7D0521D9C6AE900A8C82C /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +107,14 @@
 			children = (
 				E9E7D0121D9C11F500A8C82C /* AppDelegate.swift */,
 				E9E7D0141D9C11F500A8C82C /* ViewController.swift */,
+				E9E7D0521D9C6AE900A8C82C /* City.swift */,
 				E9E7D0161D9C11F500A8C82C /* Main.storyboard */,
 				E9E7D0191D9C11F500A8C82C /* Assets.xcassets */,
+				E9E7D04C1D9C378E00A8C82C /* MeetupAPI.swift */,
+				E9E7D0481D9C351900A8C82C /* CityStore.swift */,
 				E9E7D01B1D9C11F500A8C82C /* LaunchScreen.storyboard */,
 				E9E7D01E1D9C11F500A8C82C /* Info.plist */,
+				E9E7D0401D9C129100A8C82C /* MeetupConfig.plist */,
 			);
 			path = MyMeetups;
 			sourceTree = "<group>";
@@ -234,6 +246,7 @@
 			files = (
 				E9E7D01D1D9C11F500A8C82C /* LaunchScreen.storyboard in Resources */,
 				E9E7D01A1D9C11F500A8C82C /* Assets.xcassets in Resources */,
+				E9E7D0411D9C129100A8C82C /* MeetupConfig.plist in Resources */,
 				E9E7D0181D9C11F500A8C82C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,8 +272,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9E7D0491D9C351900A8C82C /* CityStore.swift in Sources */,
+				E9E7D0531D9C6AE900A8C82C /* City.swift in Sources */,
 				E9E7D0151D9C11F500A8C82C /* ViewController.swift in Sources */,
 				E9E7D0131D9C11F500A8C82C /* AppDelegate.swift in Sources */,
+				E9E7D04D1D9C378E00A8C82C /* MeetupAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
